@@ -1,9 +1,6 @@
 import java.io.Serializable;
 
-/**
- * Représente un livre avec ses informations de base.
- * Cette classe est sérialisable pour permettre la persistance de ses instances.
- */
+
 public class Livre implements Serializable {
 
     // Numéro de version pour la sérialisation, évite les InvalidClassException
@@ -15,15 +12,7 @@ public class Livre implements Serializable {
     private String isbn; // ISBN officiel, optionnel et modifiable
     private int anneePublication;
 
-    /**
-     * Construit une nouvelle instance de Livre.
-     *
-     * @param identifiantInterne L'identifiant unique généré par le système.
-     * @param titre Le titre du livre.
-     * @param auteur L'auteur du livre.
-     * @param isbn L'ISBN officiel du livre (peut être vide).
-     * @param anneePublication L'année de publication du livre.
-     */
+    
     public Livre(String identifiantInterne, String titre, String auteur, String isbn, int anneePublication) {
         this.identifiantInterne = identifiantInterne;
         this.titre = titre;
