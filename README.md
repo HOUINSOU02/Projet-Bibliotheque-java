@@ -48,9 +48,9 @@ L'application démarre et vous présente un menu interactif :
 ```
 --- Menu de la Bibliothèque ---
 1: Afficher tous les livres
-2: Ajouter un livre manuellement
-3: Rechercher un livre par ISBN
-4: Supprimer un livre par ISBN
+2: Ajouter un livre
+3: Rechercher un livre
+4: Supprimer un livre
 0: Quitter et sauvegarder
 -----------------------------
 Votre choix : 
