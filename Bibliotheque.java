@@ -3,10 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Gère une collection de livres et assure la persistance des données
- * par sérialisation.
- */
+
 public class Bibliotheque implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -14,26 +11,19 @@ public class Bibliotheque implements Serializable {
 
     private final ArrayList<Livre> listeLivres;
 
-    /**
-     * Constructeur privé pour initialiser la liste de livres.
-     */
+    
     public Bibliotheque() {
         this.listeLivres = new ArrayList<>();
     }
 
-    /**
-     * Ajoute un livre à la collection.
-     * @param livre Le livre à ajouter.
-     */
+    
     public void ajouterLivre(Livre livre) {
         if (livre != null) {
             listeLivres.add(livre);
         }
     }
 
-    /**
-     * Affiche tous les livres de la collection.
-     */
+    
     public void afficherLivres() {
         if (listeLivres.isEmpty()) {
             System.out.println("La bibliothèque est vide.");
@@ -46,11 +36,7 @@ public class Bibliotheque implements Serializable {
         }
     }
 
-    /**
-     * Recherche un livre par son identifiant interne unique.
-     * @param id L'identifiant interne du livre à rechercher.
-     * @return Le Livre trouvé ou null si aucun livre ne correspond.
-     */
+    
     public Livre rechercherLivre(String id) {
         for (Livre livre : listeLivres) {
             if (livre.getIdentifiantInterne().equals(id)) {
@@ -60,22 +46,13 @@ public class Bibliotheque implements Serializable {
         return null; // Non trouvé
     }
 
-    /**
-     * Recherche des livres par titre (insensible à la casse).
-     * @param titre Le titre (ou une partie du titre) à rechercher.
-     * @return Une liste de livres correspondants.
-     */
+    
     public List<Livre> rechercherParTitre(String titre) {
         return listeLivres.stream()
                 .filter(livre -> livre.getTitre().toLowerCase().contains(titre.toLowerCase()))
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Recherche des livres par auteur (insensible à la casse).
-     * @param auteur L'auteur (ou une partie du nom) à rechercher.
-     * @return Une liste de livres correspondants.
-     */
     public List<Livre> rechercherParAuteur(String auteur) {
         return listeLivres.stream()
                 .filter(livre -> livre.getAuteur().toLowerCase().contains(auteur.toLowerCase()))
@@ -83,11 +60,7 @@ public class Bibliotheque implements Serializable {
     }
 
 
-    /**
-     * Supprime un livre de la collection en se basant sur son identifiant interne.
-     * @param id L'identifiant interne du livre à supprimer.
-     * @return true si le livre a été trouvé et supprimé, false sinon.
-     */
+    
     public boolean supprimerLivre(String id) {
         Livre livreASupprimer = rechercherLivre(id);
         if (livreASupprimer != null) {
@@ -97,9 +70,7 @@ public class Bibliotheque implements Serializable {
         return false;
     }
 
-    /**
-     * Sauvegarde l'état actuel de la bibliothèque dans un fichier.
-     */
+    
     public void sauvegarder() {
         try (FileOutputStream fos = new FileOutputStream(NOM_FICHIER);
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
@@ -110,11 +81,7 @@ public class Bibliotheque implements Serializable {
         }
     }
 
-    /**
-     * Charge l'état de la bibliothèque depuis un fichier.
-     * Si le fichier n'existe pas, une nouvelle bibliothèque est créée.
-     * @return Une instance de Bibliotheque.
-     */
+    
     public static Bibliotheque charger() {
         File fichier = new File(NOM_FICHIER);
         if (fichier.exists()) {
@@ -133,10 +100,7 @@ public class Bibliotheque implements Serializable {
         }
     }
     
-    /**
-     * Vérifie si la bibliothèque est vide.
-     * @return true si aucun livre n'est présent, false sinon.
-     */
+    
     public boolean estVide() {
         return listeLivres.isEmpty();
     }
