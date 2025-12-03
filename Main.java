@@ -1,9 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/**
- * Classe principale pour tester le système de gestion de bibliothèque.
- */
+
 public class Main {
 
     public static void main(String[] args) {
@@ -135,12 +133,7 @@ public class Main {
         }
     }
 
-    /**
-     * Affiche un menu interactif pour permettre à l'utilisateur de trouver et de sélectionner un livre.
-     * @param scanner Le scanner pour la saisie utilisateur.
-     * @param bibliotheque L'instance de la bibliothèque.
-     * @return Le livre sélectionné, ou null si l'utilisateur annule ou si aucun livre n'est trouvé.
-     */
+    
     private static Livre selectionnerLivre(Scanner scanner, Bibliotheque bibliotheque) {
         System.out.println("\n--- Comment trouver le livre ? ---");
         System.out.println("1: Par son ID interne");
